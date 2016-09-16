@@ -1,0 +1,15 @@
+<ion-pane>
+	<div class="list list-inset" style="margin-top: 45%" ng-init="loaded()">
+	  <label class="item item-input">
+	    <i class="icon ion-person placeholder-icon"></i>
+	    <input type="text" placeholder="Username" ng-model="user.username">
+	  </label>
+	  <label class="item item-input">
+	    <i class="icon ion-locked placeholder-icon"></i>
+	    <input type="password" placeholder="Password" ng-model="user.password">
+	  </label>
+	  <button class="button button-block button-positive" ng-click="doLogin()">
+		  Login
+		</button>
+	</div>
+</ion-pane>

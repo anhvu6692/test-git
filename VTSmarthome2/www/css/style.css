@@ -1,0 +1,55 @@
+/* Empty. Add your own CSS if you like */
+.slider-slide h3{
+	color:#fff;
+	margin-top:10px;
+}
+.scroll{
+	height:100%;
+}
+
+.item-content{
+	text-align: left;	
+}
+
+.infor-item{
+	display: inline-block;
+	margin-top: 25px;
+}
+
+.buttons-item{
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+	margin-top: 20px;
+}
+
+.buttons-item label{
+	margin-top: 3px;
+}
+
+.buttons-item button,.buttons-item button.activated{
+	background: none;
+	border: none;
+}
+
+.buttons-item button.activated{
+	color: #f00;
+}
+
+.item-left-editable .item-content, .item-right-editable .item-content{
+	padding-right: 10px;
+}
+
+.list-style .item-input input{
+	text-align: right;
+	padding-right: 20px;
+	width: 50%;
+}
+
+.item-options ion-option-button{
+	font-size: 24px;
+}
+
+div.list {
+	padding-bottom: 40px;
+}

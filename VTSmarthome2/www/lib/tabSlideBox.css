@@ -1,0 +1,134 @@
+.tabbed-slidebox .slider {
+    height: 100%;
+}
+.tabbed-slidebox.btm .slider {
+    margin-bottom: -50px;
+}
+.tabbed-slidebox .slider-slides {
+    width: 100%;
+}
+
+.tabbed-slidebox .slider-slide {
+    padding-top: 0px;
+    color: #000;
+    text-align: center;
+    font-weight: 300;
+    background-color: #0066b3;
+}
+
+.tabbed-slidebox .tsb-icons {
+    text-align: center;    
+    position: relative;
+	background-color:#fff;
+    margin-top: 9px;
+/*    position: absolute;
+    bottom: 0;
+    left: 0;
+*/}
+
+.wrapper-tsb{
+    position: absolute;
+    bottom: 0;
+    left: 0; 
+}
+
+.tabbed-slidebox .tsb-ic-wrp {
+    display: flex;
+    position: relative;
+	-webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+	-webkit-transform:translate3d(0,0,0);
+    background: #1c77bb;
+}
+
+.tabbed-slidebox .tsb-icons a {
+    display: inline-block;
+    width: 54px;
+    font-size: 2.5em;
+    color: rgba(0, 0, 0, 0.3);
+	
+}
+
+.tabbed-slidebox .tsb-icons a.active {
+    color: rgba(0, 0, 0, 1);
+    font-size: 3.5em;
+	
+}
+
+.tabbed-slidebox .tabbed-slidebox {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tabbed-slidebox .tsb-icons:after {
+    /*width: 0;*/
+    /*height: 0;*/
+    /*border-style: solid;*/
+    /*border-width: 0 1.4em 1.4em 1.4em;*/
+    /*border-color: transparent transparent #0398dc transparent;*/
+    /*position: absolute;*/
+    /*content: "";*/
+    /*display: block;*/
+    /*bottom: -12px;*/
+    /*left: 50%;*/
+    /*margin-left: -14px;*/
+}
+.tsb-hscroll.scroll-view{
+  	white-space: nowrap;
+	margin:0 auto;
+}
+.tsb-hscroll.scroll-view .scroll-bar{
+	visibility:hidden;
+}
+.tsb-hscroll.scroll-view .scroll.onscroll{
+	-webkit-transition: -webkit-transform 0.3s; /* For Safari 3.1 to 6.0 */
+}
+
+.tabbed-slidebox .tsb-icons .scroll a{
+	width:auto;	
+	text-decoration: none;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px 15px 10px 15px;
+    font-weight: 200;
+    text-transform: uppercase;
+}
+.tabbed-slidebox .tsb-icons .scroll a.active {
+	font-size: 1.3em;
+    background: #70a9d4;
+}
+
+.tsb-top{
+    background: #70a9d4;
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    width: 100%;
+    padding: 2px 14px;
+}
+
+.tsb-top span{
+    font-size: 12px;
+    color: #fff;
+    display: inline-block;
+    padding-top: 5px;
+}
+
+.tsb-top div h1,.tsb-top div img{
+    display: inline-block;
+}
+
+.tsb-top div h1{
+    font-size: 1em;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    padding-top: 5px;
+}
+
+.tsb-top div img{
+    height: 22px !important;
+    width: auto !important;
+    margin-top: 3px;
+}

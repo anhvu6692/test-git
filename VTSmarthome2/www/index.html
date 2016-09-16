@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/tabSlideBox.css">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/home.css" rel="stylesheet">
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/angular-ui-router/angular-route.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+    <script src="js/ng-cordova.min.js"></script>
+    <script src="lib/ionic-timepicker/dist/ionic-timepicker.bundle.min.js"></script>
+    <script src="lib/ngTouch.min.js"></script>
+    <link href="css/animate.css" rel="stylesheet">
+
+
+
+    <!-- your app's js -->
+    <script type="text/javascript" src="lib/tabSlideBox.js"></script>
+    <script src="modules/app.js"></script>
+
+    <!-- service -->
+    <script src="js/service/SocketService.js"></script>
+    <script src="js/service/LoginService.js"></script>
+    <script src="js/service/DeviceParsingService.js"></script>
+    <script src="js/service/MockingService.js"></script>
+    <script src="js/service/StorageService.js"></script>
+    <script src="js/service/StatementService.js"></script>
+
+    <!-- vo -->
+    <script src="js/model/Device.js"></script>
+    <script src="js/model/Floor.js"></script>
+    <script src="js/model/Room.js"></script>
+    <script src="js/model/Device.js"></script>
+    <script src="js/model/Profile.js"></script>
+    <script src="js/model/Camera.js"></script>
+
+    <!-- controller -->
+    <script src="modules/home/ctrl.js"></script>
+    <script src="modules/setting/ctrl.js"></script>
+    <script src="modules/manager/Device_ctrl.js"></script>
+    <script src="modules/manager/Floor_ctrl.js"></script>
+    <script src="modules/manager/Room_ctrl.js"></script>
+    <script src="modules/manager/Profile_ctrl.js"></script>
+    <script src="modules/manager/Camera_ctrl.js"></script>
+    <script src="modules/manager/ctrl.js"></script>
+    <script src="modules/route.js"></script>
+    <script src="modules/login/ctrl.js"></script>
+
+
+
+  </head>
+  <body ng-app="app">
+
+    <ion-pane>      
+      <ion-nav-view></ion-nav-view>      
+    </ion-pane>
+    
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<style>
+    ion-item{
+        background: initial !important;
+        border-color: initial !important;   
+    }
+    .popup{
+        height: 85%;
+    }
+    .popup-body{
+        height: 90%;
+    }
+    .popup-head h3{
+        color: #FFF;
+    }
+    
+</style>
+<ion-pane>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+        <h1 class="title center">{{title}}</h1>
+        <button class="button button-icon icon ion-ios-checkmark-outline" ng-click="submit()"></button>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <input type="hidden" ng-model="floor.id" class="text-align-right">
+        <ul class="list list-style">
+            <div class="item item-divider">Thông tin tầng</div>
+            <li class="item item-input">
+                <span class="input-label">Tên tầng</span>
+                <input type="text" ng-model="floor.name" class="text-align-right">
+            </li>
+            <li>
+                <span class="input-label">Sơ đồ phòng</span>
+                <button class="button" ng-click="browserFile()">Browser</button>
+                <img ng-src="{{floor.image}}" style="width:100%; height: auto;"/>
+            </li>
+            <div class="item item-divider">
+                Cài đặt
+                <button class="button" style="background: #387ef5;color: #fff;float: right" ng-click="addDevice()">Cài đặt thiết bị</button> 
+                <a class="button" style="background: #387ef5;color: #fff;float: right;margin-right: 5px;" href="#/room/{{floor.id}}">Cài đặt phòng</a>
+            </div>
+
+            <ion-list>
+                <ion-item can-swipe="listCanSwipe" ng-repeat="device in deviceList | orderBy:'id' | filter: {selected:true} ">
+                    <h2 style="color: black;">{{device.name}}(ID:{{device.id}})</h2>
+                    <!-- <ion-option-button class="button-assertive ion-ios-trash-outline" ng-click="removeDevice({{device}})">
+                    </ion-option-button> -->
+                </ion-item>
+            </ion-list>
+
+        </ul>
+
+
+    </ion-content>
+</ion-pane>

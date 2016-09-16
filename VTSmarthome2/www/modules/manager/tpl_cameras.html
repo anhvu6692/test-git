@@ -1,0 +1,21 @@
+<style>
+    ion-item{
+        background: initial !important;
+        border-color: initial !important;
+    }
+</style>
+<ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon ion-android-menu" ng-click="toggleSidemenu()"></button>
+    <button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+    <h1 class="title center">{{title}}</h1>
+    <button class="button button-icon ion-ios-plus-outline" ng-click="add()"></button>
+</ion-header-bar>
+<ion-content class="has-header">
+    <ion-list>
+        <ion-item can-swipe="listCanSwipe" ng-click="edit({{camera.id}})" ng-repeat="camera in cameras |  orderBy:'id' ">
+            <h2 style="color: black;">{{camera.name}}</h2>
+            <ion-option-button class="button-assertive ion-ios-trash-outline" ng-click="remove({{camera.id}})">
+            </ion-option-button>
+        </ion-item>
+    </ion-list>
+</ion-content>

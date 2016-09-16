@@ -1,0 +1,21 @@
+<style>
+	ion-item{
+		background: initial !important;
+	    border-color: initial !important;	
+	}
+</style>
+<ion-header-bar align-title="center" class="bar-positive">
+	<button class="button button-icon ion-android-menu" ng-click="toggleSidemenu()"></button>
+	<button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+	<h1 class="title center">{{title}}</h1>
+	<button class="button button-icon ion-ios-plus-outline" ng-click="add()"></button>
+</ion-header-bar>
+<ion-content class="has-header">
+	<ion-list>
+		<ion-item ng-click="edit({{floor.id}})" can-swipe="listCanSwipe" ng-repeat="floor in floors">
+			<h2 style="color: black;">{{floor.name}}</h2>
+    		<ion-option-button class="button-assertive ion-ios-trash-outline" ng-click="remove({{floor.id}})">
+    		</ion-option-button>
+		</ion-item>
+	</ion-list>
+</ion-content>

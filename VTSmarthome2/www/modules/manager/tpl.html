@@ -1,0 +1,23 @@
+<ion-side-menus enable-menu-with-back-views="true">
+	<ion-side-menu side="left">
+		<ion-list class="list-device" ng-style="{'height': '250px'}">
+			<ion-item menu-close class="device item item-icon-left" href="#/manager/floors">
+				<i class="icon ion-ios-gear-outline"></i>Quản lý tầng
+			</ion-item>
+			<ion-item menu-close class="device item item-icon-left" href="#/manager/device">
+        		<i class="icon ion-ios-gear-outline"></i>Quản lý thiết bị
+      		</ion-item>
+			<ion-item menu-close class="device item item-icon-left" href="#/manager/profiles">
+				<i class="icon ion-ios-gear-outline"></i>Quản lý cấu hình
+			</ion-item>
+			<ion-item menu-close class="device item item-icon-left" href="#/manager/camera">
+				<i class="icon ion-ios-gear-outline"></i>Quản lý Camera
+			</ion-item>
+		</ion-list>
+	</ion-side-menu>
+
+	<ion-side-menu-content>		
+			<ion-nav-view name="menuContent"></ion-nav-view>		
+	</ion-side-menu-content>
+
+</ion-side-menus>

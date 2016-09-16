@@ -1,0 +1,52 @@
+<style>
+    ion-item{
+        background: initial !important;
+        border-color: initial !important;   
+    }
+</style>
+<ion-pane>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+        <h1 class="title center">{{title}}</h1>
+        <button class="button button-icon icon ion-ios-checkmark-outline" ng-click="submit()"></button>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <ul class="list list-style">
+            <li class="item item-input">
+                <span class="input-label">ID thiết bị</span>
+                <select ng-model="device.id" ng-change="changeDevice()" ng-disabled="!addMode" ng-options="opt.id as opt.id for opt in deviceList">
+                    <!--<option ng-repeat="dev in deviceList" value="{{dev.id}}" >{{dev.id}}</option>-->
+                </select>
+                
+            </li>
+            <li class="item item-input">
+                <span class="input-label">Tên thiết bị:</span>
+                <input type="text" ng-model="device.name" class="text-align-right">
+            </li>
+            <li class="item item-input">
+                <span class="input-label">Loại thiết bị</span>
+                <select ng-model="device.deviceType" ng-options="opt.id as opt.name for opt in deviceTypeList">
+                    <!--<option ng-repeat="type in deviceTypeList" value="{{type.id}}" ng-selected="device.deviceType == type.id" > {{device.deviceType == type.id}} {{type.name}}</option>-->
+                </select>
+            </li>
+
+
+            <li class="item item-input">
+                <span class="input-label">Loại tín hiệu</span>
+                <input type="text" ng-model="device.signalType" class="text-align-right" disabled>
+            </li>
+            <li class="item item-input">
+                <span class="input-label">Giá trị thấp nhất</span>
+                <input type="text" ng-model="device.minValue"  class="text-align-right" ng-disabled="isDigital">
+            </li>
+            <li class="item item-input">
+                <span class="input-label">Giá trị lớn nhất</span>
+                <input type="text" ng-model="device.maxValue"  class="text-align-right" ng-disabled="isDigital">
+            </li>
+            <li class="item item-input">
+                <span class="input-label"></span>
+                <ion-checkbox ng-model="device.isOutdoor">Cảm biến ngoài trời</ion-checkbox>
+            </li>
+        </ul>
+    </ion-content>
+</ion-pane>

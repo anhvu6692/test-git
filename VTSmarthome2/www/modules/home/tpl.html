@@ -1,0 +1,148 @@
+<ion-view title="Scrollable Tabbed Slide box" class="B0066b3">
+	<ion-header-bar align-title="center" class="bar-positive B3888c4 topbar">
+		<div class="infor">
+			<h1 style="float: left">Ngoài trời {{troi}}</h1>
+			<div style="float:left" ng-repeat="od in outDoorDevices" >
+				<img ng-src="img/icons/{{od.type == 1 ? '1' : '2' }}.png" class="icon-1">
+				<h1>{{od.value/10}} {{od.type == 1 ? '°C' : '%' }}</h1>
+			</div>
+		</div>
+		<div class="topbarright">
+			<div class="imglogo" ng-click="viewListCamera()">
+				<img src="img/icons/3.png">
+			</div>
+		</div>
+	</ion-header-bar>
+
+    <ion-content scroll="false">
+      	<tab-slide-box tabs-position="bottom">
+	    	<ion-slide-box show-pager="false" on-slide-changed="slideHasChanged($index)">
+                <ion-slide ng-repeat="tab in tabs">
+
+					<ion-content ng-show="viewType==1 || viewType==3">
+						<ion-scroll style="height:100%" delegate-handle="slide1Scroll" >
+							<ion-list 	show-delete="shouldShowDelete"
+										show-reorder="shouldShowReorder"
+										can-swipe="listCanSwipe">
+								<ion-item ng-repeat="item in items_ToTab | orderBy:'name'" class="item-thumbnail-left" style="padding-bottom: 40px;">
+
+									<!-- Line 01 -->
+									<div class="maincontent">
+										<div class="itemcontent">
+											<div class="timewarn-wrapper">
+												<img ng-style="item.isSchedule == 1 ? {opacity:1}  : {opacity:0}" src="img/icons/5.png" class="timewarn" style="padding-bottom: 2px">
+												<span ng-show="item.isDigital != 1" class="qty">{{item.value}}</span>
+											</div>
+											<img class="icondeviceimg" style="height:46px" ng-src="img/device/{{item.type}}.png">
+											<h2 style="line-height:46px">{{item.name}}</h2>
+										</div>
+										<div class="buttons-item">
+											<img ng-src="img/icons/s{{item.isOn == 0 ? '1' : '2'}}.png" ng-style ="item.isSchedule == 1 ? {opacity: 0.5} : {opacity: 1} " ng-touchstart="changeStatus({{item.id}})" class="switchbtn">
+											<i class="icon ion-ios-settings" ng-touchstart="expandAndColl({{item.id}})"></i>
+										</div>
+									</div>
+
+									<!-- Line 02 -->
+									<div class="maincontent animated fadeInDown" ng-show="item.expand == 1" class="check-element animate-show">
+										<div class="itemcontent" style="margin-top: 15px;">
+											<div class="timeimg" style="width:46px">
+												<img ng-src="img/icons/{{item.isSchedule == 0 ? '6' : '5'}}.png">
+											</div>
+											<span ng-touchstart="goToSetting({{item.id}})"  style="color: white;" >Từ {{item.fromSchedule}} đến {{item.toSchedule}}</span>
+										</div>
+
+										<div class="buttons-item">
+											<img ng-src="img/icons/s{{item.isSchedule == 0 ? '1' : '2'}}.png" ng-touchstart="changeOnOffSchedule({{item.id}})" class="switchbtn">
+											<i class="icon ion-ios-settings" style="opacity: 0"></i>
+										</div>
+									</div>
+									<!-- END MUST-->
+
+									<!-- Option -->
+									<!-- Line 03 -->
+									<div class="timeshow animated fadeInDown" ng-show="item.isDigital != 1 && item.type == 7 && item.expand == 1">
+										<div class="timeshow-infor">
+											<div class="g-btn">
+												<img src="img/icons/p.png" class="btn-01 float-left" ng-touchstart="subtractValue({{item.id}})">
+												<img src="img/icons/pause.png" class="btn-02" ng-touchstart="offDevice({{item.id}})">
+												<img src="img/icons/n.png" class="btn-01 float-right" ng-touchstart="addValue({{item.id}})">
+											</div>
+										</div>
+									</div>
+									<div class="timeshow animated fadeInDown" ng-show="item.isDigital != 1 && item.type != 7 && item.expand == 1">
+										<div class="timeshow-infor">
+											<div class="g-btn">
+												<img src="img/icons/-.png" class="btn-01 float-left" ng-touchstart="subtractValue({{item.id}})">
+												<strong><span class="qty" style="color: #fff !important;border: 2px solid #fff;">{{item.value}}</span></strong>
+												<img src="img/icons/+.png" class="btn-01 float-right" ng-touchstart="addValue({{item.id}})">
+											</div>
+										</div>
+									</div>
+									<!-- -->
+									<!-- END Option -->
+								</ion-item>
+							</ion-list>
+		         		</ion-scroll>
+	         		</ion-content>
+					<ion-content ng-show="viewType==2">
+						<h3 style="font-size: 18px;color: #fff;">Sơ đồ {{floor.name}}</h3>
+						<img width="{{image.width}}" height="{{image.height}}" ng-src="{{floor.image}}" ng-touchstart="chooseByLocale($event)">
+					</ion-content>
+				</ion-slide>
+	        </ion-slide-box>
+
+			<!-- List Room -->
+			<div class="new-scroll"  ng-show="((viewType==1 && currentTabs != 0) || viewType==3) && rooms.length > 0 ">
+				<div class="newtsb-ic-wrp" style="height: 40px">
+					<ion-scroll direction="x" class="newtsb-hscroll">
+						<a ng-click="gotoRoom(room.id)" class="{{ room.active ? 'active':'nonactive' }}" ng-repeat="room in rooms">{{room.name}}</a>
+					</ion-scroll>
+				</div>
+			</div>
+
+			<!-- List Sensor -->
+			<div class="tsb-top" ng-show="viewType == 3" >
+				<span>{{room.name}}</span>
+				<div class="float-right" ng-repeat="cambien in cambiens">
+					<img style="height: 100%;" ng-src="img/icons/{{cambien.type == 1 ? '1' : '2' }}.png">
+					<h1>{{cambien.value/10}} {{cambien.type == 1 ? '°C' : '%' }}</h1>
+				</div>
+			</div>
+
+			<!-- List Floor -->
+			<div class="tsb-icons">
+				<div class="tsb-ic-wrp" style="float: left;width: {{width}}%;">
+					<ion-scroll direction="x" class="tsb-hscroll">
+						<a href="javascript:;" class="" ng-repeat="tab in tabs"  on-finish-render="test()">{{tab.name}}</a>
+					</ion-scroll>
+				</div>
+				<img width="40px" height="40px" src="img/icons/12.png" style="float: left;" ng-touchstart="showOption()">
+			</div>
+
+      	</tab-slide-box>
+    </ion-content>
+</ion-view>
+<script id = "view-camera-snapshot.html" type = "text/ng-template">
+	<ion-modal-view>
+		<ion-header-bar>
+			<h1 class = "title">All Camera</h1>
+			<button class = "button icon icon-left ion-ios-close-outline" ng-click = "closeListCamera()"></button>
+		</ion-header-bar>
+		<ion-content>
+			<img ng-repeat="camera in cameras" ng-src="{{'http://'+camera.hostname+ ':' + camera.port + '/snapshot.cgi?user='+ camera.username + '&pwd='+camera.password }}"
+				 ng-click="viewCamera('{{'http://'+camera.hostname+ ':' + camera.port + '/videostream.cgi?user='+ camera.username + '&pwd='+camera.password }}')"
+				 width="32%" height="auto"  >
+			<!--<img src="http://icam70255.ihome365.org/snapshot.cgi?rate=0&user=admin&pwd=admin" width="32%" height="auto">-->
+		</ion-content>
+	</ion-modal-view>
+</script>
+<script id="view-camera.html" type = "text/ng-template">
+	<ion-modal-view>
+		<ion-header-bar>
+			<button class = "button icon icon-left ion-ios-close-outline" ng-click = "closeCamera()"></button>
+		</ion-header-bar>
+		<ion-content style="pointer-events: none;">
+			<img ng-src="{{cameraURL}}" width="100%" height="100%">
+		</ion-content>
+	</ion-modal-view>
+</script>

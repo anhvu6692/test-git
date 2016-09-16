@@ -1,0 +1,53 @@
+<style>
+    ion-item{
+        background: initial !important;
+        border-color: initial !important;   
+    }
+    .popup{
+        height: 85%;
+    }
+    .popup-body{
+        height: 90%;
+    }
+    .popup-head h3{
+        color: #FFF;
+    }
+    
+</style>
+<ion-pane>
+    <ion-header-bar align-title="center" class="bar-positive">
+        <button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+        <h1 class="title center">{{title}}</h1>
+        <button class="button button-icon icon ion-ios-checkmark-outline" ng-click="submit()"></button>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <input type="hidden" ng-model="room.id" class="text-align-right">
+        <ul class="list list-style">
+            <div class="item item-divider">Thông tin phòng</div>
+            <li class="item item-input">
+                <span class="input-label">Tên phòng</span>
+                <input type="text" ng-model="room.name" class="text-align-right">
+            </li>
+            <li>
+                <span class="input-label">Tọa độ chạm *</span>
+                <label class="text-align-right" style="float: right">{{room.x}},{{room.y}}</label>
+                <button class="button" ng-click="findLocation()">Browser</button>
+            </li>
+            <div class="item item-divider">
+                Danh sách thiết bị
+                <button class="button" style="background: #387ef5;color: #fff;float: right;" ng-click="addDevice()">Thêm thiết bị</button>
+            </div>
+
+            <ion-list>
+                <ion-item can-swipe="listCanSwipe" ng-repeat="device in deviceList | orderBy:'id' | filter: {selected:true} ">
+                    <h2 style="color: black;">{{device.name}}(ID:{{device.id}})</h2>
+                    <!-- <ion-option-button class="button-assertive ion-ios-trash-outline" ng-click="removeDevice({{device}})">
+                    </ion-option-button> -->
+                </ion-item>
+            </ion-list>
+
+        </ul>
+
+
+    </ion-content>
+</ion-pane>

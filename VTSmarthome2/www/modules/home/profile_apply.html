@@ -1,0 +1,23 @@
+<!--
+<ion-view title="Scrollable Tabbed Slide box" class="B0066b3">
+    <ion-content>
+
+    </ion-content>
+</ion-view>-->
+
+<ion-header-bar align-title="center" class="bar-positive">
+    <button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+    <h1 class="title center">{{title}}</h1>
+    <button class="button button-icon" ng-click="gotoSetting()">Setting</button>
+</ion-header-bar>
+<ion-content class="has-header">
+    <ion-list>
+        <div class="item item-divider">
+            Chọn cấu hình
+        </div>
+        <ion-item ng-click="applyProfile(profile.id)" can-swipe="listCanSwipe" ng-repeat="profile in profiles">
+            <h2>{{profile.name}} (ID: {{profile.id}})</h2>
+            </ion-option-button>
+        </ion-item>
+    </ion-list>
+</ion-content>

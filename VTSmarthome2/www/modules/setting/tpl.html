@@ -1,0 +1,45 @@
+<ion-pane>
+	<ion-header-bar align-title="center" class="bar-positive">
+		<button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+		<h1 class="title center">{{device.name}}</h1>
+		<button class="button button-icon icon ion-ios-checkmark-outline" ng-click="submit()"></button>
+	</ion-header-bar>
+	<ion-content class="has-header">
+		<ul class="list list-style">
+			<li class="item item-input">
+				<span class="input-label">Tên thiết bị</span>
+    			<input type="text" class="text-align-right" value="{{device.name}}">
+			</li>
+			<li class="item item-toggle">
+				Bật/Tắt
+				<label class="toggle toggle-assertive">
+					<input type="checkbox">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
+			</li>
+			<li class="item range range-positive">
+				<span class="input-label">Mức độ tín hiệu</span>				
+				<input type="range" name="volume" min="{{device.signalMin}}" max="{{device.signalMax}}" value="{{device.signal}}">				
+			</li>
+			<li class="item item-toggle">
+				Tự động chạy
+				<label class="toggle toggle-assertive">
+					<input type="checkbox">
+					<div class="track">
+						<div class="handle"></div>
+					</div>
+				</label>
+			</li>
+			<li class="item item-input">				
+				<span class="input-label">Thời gian bắt đầu</span>
+				<input type="text" class=" text-align-right" value="{{device.timeStart}}">
+			</li>
+			<li class="item item-input">				
+				<span class="input-label">Thời gian kết thúc</span>
+				<input type="text" class=" text-align-right" value="{{device.timeEnd}}">
+			</li>
+		</ul>
+	</ion-content>
+</ion-pane>

@@ -1,0 +1,24 @@
+<style>
+    ion-item{
+        background: initial !important;
+        border-color: initial !important;   
+    }
+</style>
+<ion-header-bar align-title="center" class="bar-positive">
+	<button class="button button-icon ion-android-menu" ng-click="toggleSidemenu()" ng-show="alldevice"></button>
+	<button class="button button-icon ion-ios-arrow-thin-left" ng-click="back()"></button>
+	<h1 class="title center">{{title}}</h1>
+</ion-header-bar>
+<ion-content class="has-header">
+	<ion-list>
+		<ion-item can-swipe="listCanSwipe" ng-click="edit({{device.id}})" ng-repeat="device in devices |  orderBy:'id' ">
+			<h2 ng-style="device.status == 1 && {'color':'black'}  || {'color':'red'}" >{{device.name}} (ID:{{device.id}})</h2>
+			<ion-option-button class="button-positive ion-ios-compose-outline" ng-click="edit({{device.id}})">
+      		</ion-option-button>
+			<ion-option-button class="button-assertive ion-ios-trash-outline" ng-show="device.status == 1" ng-click="disableDevice({{device.id}})">
+			</ion-option-button>
+			<ion-option-button class="button-positive ion-ios-undo-outline" ng-show="device.status != 1" ng-click="enableDevice({{device.id}})">
+			</ion-option-button>
+		</ion-item>
+	</ion-list>
+</ion-content>
